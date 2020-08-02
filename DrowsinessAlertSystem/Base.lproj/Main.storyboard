@@ -32,14 +32,28 @@
                     <view key="view" contentMode="scaleToFill" id="gzd-Wg-33q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGo-XX-Qce">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </arscnView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="uGo-XX-Qce" secondAttribute="bottom" id="KId-Dh-Ism"/>
+                            <constraint firstItem="uGo-XX-Qce" firstAttribute="top" secondItem="gzd-Wg-33q" secondAttribute="top" id="NDs-zJ-lpG"/>
+                            <constraint firstItem="uGo-XX-Qce" firstAttribute="trailing" secondItem="cwI-yb-n7B" secondAttribute="trailing" id="WRo-xQ-T3g"/>
+                            <constraint firstItem="uGo-XX-Qce" firstAttribute="leading" secondItem="cwI-yb-n7B" secondAttribute="leading" id="o4y-yJ-MDS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cwI-yb-n7B"/>
                     </view>
                     <navigationItem key="navigationItem" id="VK4-hD-iw6"/>
+                    <connections>
+                        <outlet property="sceneView" destination="uGo-XX-Qce" id="pze-pP-mVg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Qt-LI-oS9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="116"/>
+            <point key="canvasLocation" x="1037.68115942029" y="115.84821428571428"/>
         </scene>
     </scenes>
 </document>

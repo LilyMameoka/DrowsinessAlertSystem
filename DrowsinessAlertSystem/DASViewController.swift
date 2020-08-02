@@ -7,15 +7,85 @@
 //
 
 import UIKit
+import ARKit
+import AVFoundation
 
-class DASViewController: UIViewController {
+class DASViewController: UIViewController, ARSCNViewDelegate {
     
+    @IBOutlet var sceneView: ARSCNView!
     var backButton: UIButton!
+    var audioPlayer : AVAudioPlayer! = nil
+    var leftEyeVal: Float = 0
+    var rightEyeVal: Float = 0
+    var closeTime: Float = 0
+    var eyeJudgeVal: Float = 0.3
+    var timeJudgeVal: Float = 15
+    
+    let defaultConfiguration: ARFaceTrackingConfiguration = {
+        let configuration = ARFaceTrackingConfiguration()
+        return configuration
+    }()
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        sceneView.session.run(defaultConfiguration)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        sceneView.session.pause()
+    }
 
     override func viewDidLoad() {
         view.backgroundColor = UIColor.white
         super.viewDidLoad()
+        guard ARFaceTrackingConfiguration.isSupported else {
+            fatalError()
+        }
         createButton()
+        sceneView.delegate = self
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.global().async {
+            guard let faceAnchor = anchor as? ARFaceAnchor else {
+                return
+            }
+            
+            if let leftEyeBlink = faceAnchor.blendShapes[.eyeBlinkLeft] as? Float{
+                self.leftEyeVal = leftEyeBlink
+            }
+            if let rightEyeBlink = faceAnchor.blendShapes[.eyeBlinkRight] as? Float{
+                self.rightEyeVal = rightEyeBlink
+            }
+            
+            if (self.leftEyeVal>self.eyeJudgeVal)&&(self.rightEyeVal>self.eyeJudgeVal){
+                self.closeTime+=1
+                if(self.closeTime>self.timeJudgeVal){
+                    DispatchQueue.main.async{
+                        self.makeSound(name: "WarnVoice")
+                    }
+                }
+            } else {
+                self.closeTime = 0
+            }
+        }
+        
+    }
+    
+    func makeSound(name: String) {
+        let soundFilePathClear : NSString = Bundle.main.path(forResource: name, ofType: "mp3")! as NSString
+        let soundClear : NSURL = NSURL(fileURLWithPath: soundFilePathClear as String)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundClear as URL, fileTypeHint:nil)
+        } catch {
+            print("Failed AVAudioPlayer Instance")
+        }
+        audioPlayer.prepareToPlay()
     }
     
     func createButton() {

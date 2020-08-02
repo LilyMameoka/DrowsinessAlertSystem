@@ -17,6 +17,10 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     var titleImageView: UIImageView!
     var dasImage: UIImage!
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     override func viewDidLoad() {
         view.backgroundColor = UIColor.black
         super.viewDidLoad()
