@@ -17,10 +17,29 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="rMW-Bf-N3C" kind="modal" identifier="showDASSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="eky-WU-od6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="116"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EwL-VC-kqY">
+            <objects>
+                <viewController id="rMW-Bf-N3C" customClass="DASViewController" customModule="DrowsinessAlertSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gzd-Wg-33q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cwI-yb-n7B"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VK4-hD-iw6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Qt-LI-oS9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="116"/>
         </scene>
     </scenes>
 </document>
