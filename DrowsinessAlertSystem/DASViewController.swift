@@ -16,6 +16,7 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
     var mainImageView: UIImageView!
     var mainImage: UIImage!
     var backButton: UIButton!
+    var blackView: UIView!
     var audioPlayer : AVAudioPlayer! = nil
     var leftEyeVal: Float = 0
     var rightEyeVal: Float = 0
@@ -48,8 +49,8 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
         guard ARFaceTrackingConfiguration.isSupported else {
             fatalError()
         }
-        createButton()
-        createIcon()
+        createUI()
+        makeSound(name: "famima")
         sceneView.delegate = self
     }
     
@@ -70,7 +71,8 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
                 self.closeTime+=1
                 if(self.closeTime>self.timeJudgeVal){
                     DispatchQueue.main.async{
-                        self.makeSound(name: "WarnVoice")
+                        self.audioPlayer.play()
+                        self.performSegue(withIdentifier: "showRecorderSegue", sender: nil)
                     }
                 }
             } else {
@@ -119,9 +121,27 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         mainImageView.contentMode = .scaleAspectFit
         view.addSubview(mainImageView)
-        mainImageView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 320).isActive = true
+        mainImageView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 520).isActive = true
         mainImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        mainImageView.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        mainImageView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+    }
+    
+    func createBlackView() {
+        blackView = UIView()
+        blackView.frame = view.frame
+        blackView.backgroundColor = UIColor.black
+        blackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(blackView)
+        blackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        blackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        blackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        blackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    func createUI() {
+        createBlackView()
+        createButton()
+        createIcon()
     }
 
 }
