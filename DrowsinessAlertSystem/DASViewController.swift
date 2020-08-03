@@ -13,6 +13,8 @@ import AVFoundation
 class DASViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
+    var mainImageView: UIImageView!
+    var mainImage: UIImage!
     var backButton: UIButton!
     var audioPlayer : AVAudioPlayer! = nil
     var leftEyeVal: Float = 0
@@ -41,12 +43,13 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
     }
 
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.black
         super.viewDidLoad()
         guard ARFaceTrackingConfiguration.isSupported else {
             fatalError()
         }
         createButton()
+        createIcon()
         sceneView.delegate = self
     }
     
@@ -108,6 +111,17 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func backButton_TouchUpInside(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func createIcon() {
+        mainImage = UIImage(named: "DAS001")!
+        mainImageView = UIImageView(image: mainImage)
+        mainImageView.translatesAutoresizingMaskIntoConstraints = false
+        mainImageView.contentMode = .scaleAspectFit
+        view.addSubview(mainImageView)
+        mainImageView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 320).isActive = true
+        mainImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        mainImageView.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
     }
 
 }
