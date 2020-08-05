@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8609F73524D8102800293397 /* famima.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8609F73424D8102800293397 /* famima.mp3 */; };
 		8609F73724D81C9B00293397 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609F73624D81C9B00293397 /* RecorderViewController.swift */; };
 		869A004324D6F5190064BC9F /* DASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869A004224D6F5190064BC9F /* DASViewController.swift */; };
 		86ABD33524D5B012003849E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABD33424D5B012003849E3 /* AppDelegate.swift */; };
@@ -16,10 +15,10 @@
 		86ABD33C24D5B012003849E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86ABD33A24D5B012003849E3 /* Main.storyboard */; };
 		86ABD33E24D5B014003849E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86ABD33D24D5B014003849E3 /* Assets.xcassets */; };
 		86ABD34124D5B014003849E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86ABD33F24D5B014003849E3 /* LaunchScreen.storyboard */; };
+		86FAA60B24DAC76300084CDB /* warning2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 86FAA60A24DAC76300084CDB /* warning2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8609F73424D8102800293397 /* famima.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = famima.mp3; path = "../../../../SoundData/音声データ/DF音源/famima.mp3"; sourceTree = "<group>"; };
 		8609F73624D81C9B00293397 /* RecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 		869A004224D6F5190064BC9F /* DASViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DASViewController.swift; sourceTree = "<group>"; };
 		86ABD33124D5B012003849E3 /* DrowsinessAlertSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrowsinessAlertSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +29,7 @@
 		86ABD33D24D5B014003849E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86ABD34024D5B014003849E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86ABD34224D5B014003849E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86FAA60A24DAC76300084CDB /* warning2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = warning2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,7 @@
 				86ABD33824D5B012003849E3 /* ViewController.swift */,
 				869A004224D6F5190064BC9F /* DASViewController.swift */,
 				8609F73624D81C9B00293397 /* RecorderViewController.swift */,
-				8609F73424D8102800293397 /* famima.mp3 */,
+				86FAA60A24DAC76300084CDB /* warning2.mp3 */,
 				86ABD33A24D5B012003849E3 /* Main.storyboard */,
 				86ABD33D24D5B014003849E3 /* Assets.xcassets */,
 				86ABD33F24D5B014003849E3 /* LaunchScreen.storyboard */,
@@ -135,9 +135,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				86ABD34124D5B014003849E3 /* LaunchScreen.storyboard in Resources */,
+				86FAA60B24DAC76300084CDB /* warning2.mp3 in Resources */,
 				86ABD33E24D5B014003849E3 /* Assets.xcassets in Resources */,
 				86ABD33C24D5B012003849E3 /* Main.storyboard in Resources */,
-				8609F73524D8102800293397 /* famima.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

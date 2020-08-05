@@ -10,7 +10,7 @@ import UIKit
 import ARKit
 import AVFoundation
 
-class DASViewController: UIViewController, ARSCNViewDelegate {
+class DASViewController: UIViewController, ARSCNViewDelegate, AVAudioPlayerDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     var mainImageView: UIImageView!
@@ -50,7 +50,6 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
             fatalError()
         }
         createUI()
-        makeSound(name: "famima")
         sceneView.delegate = self
     }
     
@@ -70,8 +69,8 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
             if (self.leftEyeVal>self.eyeJudgeVal)&&(self.rightEyeVal>self.eyeJudgeVal){
                 self.closeTime+=1
                 if(self.closeTime>self.timeJudgeVal){
-                    DispatchQueue.main.async{
-                        self.audioPlayer.play()
+                    DispatchQueue.main.async {
+                        self.playSound(name: "warning2")
                         self.performSegue(withIdentifier: "showRecorderSegue", sender: nil)
                     }
                 }
@@ -82,7 +81,7 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    func makeSound(name: String) {
+    func playSound(name: String) {
         let soundFilePathClear : NSString = Bundle.main.path(forResource: name, ofType: "mp3")! as NSString
         let soundClear : NSURL = NSURL(fileURLWithPath: soundFilePathClear as String)
         do {
@@ -91,6 +90,7 @@ class DASViewController: UIViewController, ARSCNViewDelegate {
             print("Failed AVAudioPlayer Instance")
         }
         audioPlayer.prepareToPlay()
+        audioPlayer.play()
     }
     
     func createButton() {
